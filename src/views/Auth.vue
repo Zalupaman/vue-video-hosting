@@ -3,7 +3,7 @@
       <div class="auth-form_wrapper rounded-lg"  >
 
         <transition name="fade-form" mode="out-in">
-          <div class="form-login" v-if="isLogin">
+          <form class="form-login" v-if="isLogin" @submit.prevent="userLogin">
             <v-text-field
                 label="E-mail"
                 v-model="email"
@@ -29,11 +29,11 @@
                 block
                 elevation="4"
                 class="btn-enter"
-                @click="userLogin"
+                type="submit"
             > Enter</v-btn>
             <button class="create-btn" @click="formReverse">Create an account</button>
-          </div>
-          <div class="form-reg" v-else>
+          </form>
+          <form @submit.prevent="userReg" class="form-reg" v-else>
             <v-text-field
                 label="E-mail"
                 v-model="email"
@@ -69,10 +69,10 @@
                 block
                 elevation="4"
                 class="btn-enter"
-                @click="userReg"
+                type="submit"
             > Enter</v-btn>
             <button class="create-btn" @click="formReverse">Back</button>
-          </div>
+          </form>
         </transition>
       </div>
     </div>
